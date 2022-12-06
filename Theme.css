@@ -1,0 +1,33 @@
+.QWidget{
+    background: #2b2b2b;
+}
+
+.QLabel{
+    color: aliceblue;
+}
+
+.QPushButton{
+    background: #5e5e5e;
+    color: aliceblue;
+
+}
+
+.QLineEdit{
+    background: #5e5e5e;
+    color: aliceblue;
+    border: none;
+}
+
+.QTextEdit{
+    background: #5e5e5e;
+    color: aliceblue;
+    border-color: #5e5e5e;
+    border-width: 0;
+}
+
+.QPlainTextEdit{
+    background: #5e5e5e;
+    color: aliceblue;
+    border-color: #5e5e5e;
+    border-width: 0;
+}

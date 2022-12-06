@@ -1,0 +1,42 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="CssUnknownProperty" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myCustomPropertiesEnabled" value="true" />
+      <option name="myIgnoreVendorSpecificProperties" value="false" />
+      <option name="myCustomPropertiesList">
+        <value>
+          <list size="22">
+            <item index="0" class="java.lang.String" itemvalue="-fx-background-color" />
+            <item index="1" class="java.lang.String" itemvalue="-fx-font-size" />
+            <item index="2" class="java.lang.String" itemvalue="-fx-font-family" />
+            <item index="3" class="java.lang.String" itemvalue="-fx-text-fill" />
+            <item index="4" class="java.lang.String" itemvalue="-fx-opacity" />
+            <item index="5" class="java.lang.String" itemvalue="-fx-base" />
+            <item index="6" class="java.lang.String" itemvalue="-fx-control-inner-background" />
+            <item index="7" class="java.lang.String" itemvalue="-fx-table-cell-border-color" />
+            <item index="8" class="java.lang.String" itemvalue="-fx-table-header-border-color" />
+            <item index="9" class="java.lang.String" itemvalue="-fx-padding" />
+            <item index="10" class="java.lang.String" itemvalue="-fx-size" />
+            <item index="11" class="java.lang.String" itemvalue="-fx-border-width" />
+            <item index="12" class="java.lang.String" itemvalue="-fx-border-color" />
+            <item index="13" class="java.lang.String" itemvalue="-fx-border-insets" />
+            <item index="14" class="java.lang.String" itemvalue="-fx-alignment" />
+            <item index="15" class="java.lang.String" itemvalue="text-fill" />
+            <item index="16" class="java.lang.String" itemvalue="-opacity" />
+            <item index="17" class="java.lang.String" itemvalue="background-radius" />
+            <item index="18" class="java.lang.String" itemvalue="background-insets" />
+            <item index="19" class="java.lang.String" itemvalue="-fx-border-style" />
+            <item index="20" class="java.lang.String" itemvalue="-fx-border-radius" />
+            <item index="21" class="java.lang.String" itemvalue="border-insets" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="DuplicatedCode" enabled="false" level="WEAK WARNING" enabled_by_default="false">
+      <Languages>
+        <language minSize="50" name="Python" />
+      </Languages>
+    </inspection_tool>
+  </profile>
+</component>
