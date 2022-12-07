@@ -38,7 +38,7 @@ class CryptoRSA:
         for c in message:
             if ord(c) > self.n:
                 self.error_encrypt = True
-                return 'Модуль n меньше кода символа'
+                return 'Модуль p*q меньше кода символа'
             new.append(chr(ord(c) ** self.e % self.n))
         print(''.join(new))
         return ''.join(new)
