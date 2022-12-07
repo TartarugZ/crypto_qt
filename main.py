@@ -19,6 +19,7 @@ class RsaApp(QtWidgets.QMainWindow, Ui_Rsa_Window):
         super().__init__()
         self.hellman = None
         self.gamal = None
+        self.setFixedSize(800, 500)
         with open('Theme.css', 'r') as f:
             style = f.read()
         self.setStyleSheet(style)
@@ -102,6 +103,7 @@ class GamalApp(QtWidgets.QMainWindow, Ui_Gamal_Window):
         super().__init__()
         self.hellman = None
         self.rsa = None
+        self.setFixedSize(800, 500)
         with open('Theme.css', 'r') as f:
             style = f.read()
         self.setStyleSheet(style)
@@ -477,6 +479,7 @@ class HellmanApp(QtWidgets.QMainWindow, Ui_Hellman_Window):
         super().__init__()
         self.rsa = None
         self.gamal = None
+        self.setFixedSize(800, 500)
         with open('Theme.css', 'r') as f:
             style = f.read()
         self.setStyleSheet(style)
@@ -551,6 +554,7 @@ class MenuApp(QtWidgets.QMainWindow, Ui_Menu_Window):
         self.gamal = None
         self.rsa = None
         self.hellman = None
+        self.setFixedSize(800, 500)
         with open('Theme.css', 'r') as f:
             style = f.read()
         self.setStyleSheet(style)
@@ -584,6 +588,7 @@ def main():
     with open('Theme.css', 'r') as f:
         style = f.read()
     window.setStyleSheet(style)
+    window.setFixedSize(800, 500)
     window.show()
     app.exec_()
 
