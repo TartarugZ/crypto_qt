@@ -80,26 +80,20 @@ class RsaApp(QtWidgets.QMainWindow, Ui_Rsa_Window):
             self.output_text.setText("Ошибка ввода")
             return
 
-        crypto = None
+        crypto = rsa_code.create_CryproRSA(int(self.enter_p.text()),
+                                           int(self.enter_q.text()), int(self.enter_key.text()))
 
         # noinspection PyBroadException
         try:
-            crypto = rsa_code.create_CryproRSA(int(self.enter_p.text()),
-                                               int(self.enter_q.text()), int(self.enter_key.text()))
+            text = "Расшифрованное сообщение:" + "\n" + crypto.decrypt_message(
+                self.input_text.toPlainText()) + \
+                "\n\n" + \
+                "Модуль криптосистемы: " + str(crypto.n) + "\n" + "Функция Эйлера: " + str(
+                crypto.phi) + "\n" + \
+                "Секретный ключ расшифрования: " + str(crypto.d)
+            self.output_text.setText(text)
         except Exception:
             self.output_text.setText(crypto)
-
-            # noinspection PyBroadException
-            try:
-                text = "Расшифрованное сообщение:" + "\n" + crypto.decrypt_message(
-                    self.input_text.toPlainText()) + \
-                    "\n\n" + \
-                    "Модуль криптосистемы: " + str(crypto.n) + "\n" + "Функция Эйлера: " + str(
-                    crypto.phi) + "\n" + \
-                    "Секретный ключ расшифрования: " + str(crypto.d)
-                self.output_text.setText(text)
-            except Exception:
-                self.output_text.setText(crypto)
 
 
 class GamalApp(QtWidgets.QMainWindow, Ui_Gamal_Window):
