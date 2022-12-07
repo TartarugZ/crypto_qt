@@ -59,21 +59,21 @@ class DiffieHellmanGenerateAbonents(object):
 
 
 # 1
-crypto_system = DiffieHellmanGenerateAbonents(23, 5, 2, 3)
-
-print("Приватный ключ первого абонента:" + str(crypto_system.partical_key_first_abonent))
-print("Приватный ключ второго абонента:" + str(crypto_system.partical_key_second_abonent))
-print("Общий ключ первого абонента:" + str(crypto_system.full_key_1))
-print("Общий ключ второго абонента:" + str(crypto_system.full_key_2))
-
-message = "Качай Pubg"
-print("Шифруемое сообщением первым абонентом:" + message)
-
-# 2
-enc = crypto_system.first_abonent.encrypt_message(message)
-print("зашифрованное:" + enc)
-
-# 3
-dec = crypto_system.second_abonent.decrypt_message(enc)
-
-print("Второй зашифровал: " + dec)
+# crypto_system = DiffieHellmanGenerateAbonents(23, 5, 2, 3)
+#
+# print("Приватный ключ первого абонента:" + str(crypto_system.partical_key_first_abonent))
+# print("Приватный ключ второго абонента:" + str(crypto_system.partical_key_second_abonent))
+# print("Общий ключ первого абонента:" + str(crypto_system.full_key_1))
+# print("Общий ключ второго абонента:" + str(crypto_system.full_key_2))
+#
+# message = "Качай Pubg"
+# print("Шифруемое сообщением первым абонентом:" + message)
+#
+# # 2
+# enc = crypto_system.first_abonent.encrypt_message(message)
+# print("зашифрованное:" + enc)
+#
+# # 3
+# dec = crypto_system.second_abonent.decrypt_message(enc)
+#
+# print("Второй зашифровал: " + dec)
