@@ -11,7 +11,7 @@ def create_CryproRSA(p, q, e):
 
     phi = euler(p, q)
     if not check_exponent(e, phi):
-        return 'e - либо не простое число, либо не взаимно простое с функцией Эллера'
+        return 'Ключ шифрования - либо не простое число, либо не взаимно простое с функцией Эйлера'
 
     return CryptoRSA(p, q, e, phi)
 

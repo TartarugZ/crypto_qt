@@ -36,13 +36,13 @@ class RsaApp(QtWidgets.QMainWindow, Ui_Rsa_Window):
     def go_gamal(self):
         self.gamal = GamalApp()
         self.gamal.show()
-        
+
         self.close()
 
     def go_hellman(self):
         self.hellman = HellmanApp()
         self.hellman.show()
-        
+
         self.close()
 
     def do_encrypt(self):
@@ -58,14 +58,16 @@ class RsaApp(QtWidgets.QMainWindow, Ui_Rsa_Window):
 
         crypto = rsa_code.create_CryproRSA(int(self.enter_p.text()),
                                            int(self.enter_q.text()), int(self.enter_key.text()))
-
-        text = "Зашифрованное сообщение:" + "\n" + crypto.encrypt_message(
-            self.input_text.toPlainText()) + \
-            "\n" + \
-            "Модуль криптосистемы: " + str(crypto.n) + "\n" + \
-            "Функция Эйлера: " + str(crypto.phi) + "\n" + \
-            "Секретный ключ расшифрования: " + str(crypto.d)
-        self.output_text.setText(text)
+        # noinspection PyBroadException
+        try:
+            text = "Зашифрованное сообщение:" + "\n" + crypto.encrypt_message(self.input_text.toPlainText()) + \
+                   "\n\n" + \
+                   "Модуль криптосистемы: " + str(crypto.n) + "\n" + \
+                   "Функция Эйлера: " + str(crypto.phi) + "\n" + \
+                   "Секретный ключ расшифрования: " + str(crypto.d)
+            self.output_text.setText(text)
+        except Exception:
+            self.output_text.setText(crypto)
 
     def do_decrypt(self):
         if not errors.check_int(self.enter_p.text()):
@@ -78,16 +80,26 @@ class RsaApp(QtWidgets.QMainWindow, Ui_Rsa_Window):
             self.output_text.setText("Ошибка ввода")
             return
 
-        crypto = rsa_code.create_CryproRSA(int(self.enter_p.text()),
-                                           int(self.enter_q.text()), int(self.enter_key.text()))
+        crypto = None
 
-        text = "Расшифрованное сообщение:" + "\n" + crypto.decrypt_message(
-            self.input_text.toPlainText()) + \
-            "\n" + \
-            "Модуль криптосистемы: " + str(crypto.n) + "\n" + "Функция Эйлера: " + str(
-            crypto.phi) + "\n" + \
-            "Секретный ключ расшифрования: " + str(crypto.d)
-        self.output_text.setText(text)
+        # noinspection PyBroadException
+        try:
+            crypto = rsa_code.create_CryproRSA(int(self.enter_p.text()),
+                                               int(self.enter_q.text()), int(self.enter_key.text()))
+        except Exception:
+            self.output_text.setText(crypto)
+
+            # noinspection PyBroadException
+            try:
+                text = "Расшифрованное сообщение:" + "\n" + crypto.decrypt_message(
+                    self.input_text.toPlainText()) + \
+                    "\n\n" + \
+                    "Модуль криптосистемы: " + str(crypto.n) + "\n" + "Функция Эйлера: " + str(
+                    crypto.phi) + "\n" + \
+                    "Секретный ключ расшифрования: " + str(crypto.d)
+                self.output_text.setText(text)
+            except Exception:
+                self.output_text.setText(crypto)
 
 
 class GamalApp(QtWidgets.QMainWindow, Ui_Gamal_Window):
@@ -419,13 +431,13 @@ class GamalApp(QtWidgets.QMainWindow, Ui_Gamal_Window):
     def go_rsa(self):
         self.rsa = RsaApp()
         self.rsa.show()
-        
+
         self.close()
 
     def go_hellman(self):
         self.hellman = HellmanApp()
         self.hellman.show()
-        
+
         self.close()
 
     def do_encrypt(self):
@@ -441,10 +453,11 @@ class GamalApp(QtWidgets.QMainWindow, Ui_Gamal_Window):
         if not errors.check_int(self.enter_key_sender.text()):
             self.output_text.setText("Ошибка ввода")
             return
-        self.output_text.setText(str(gamal_code.encrypt(int(self.enter_module.text()), int(self.enter_primitive.text()),
-                                                    int(self.enter_key.text()),
-                                                    int(self.enter_key_sender.text()),
-                                                    self.input_text.toPlainText())))
+        self.output_text.setText("Зашифрованное сообщение:" + "\n" + str(
+            gamal_code.encrypt(int(self.enter_module.text()), int(self.enter_primitive.text()),
+                               int(self.enter_key.text()),
+                               int(self.enter_key_sender.text()),
+                               self.input_text.toPlainText())))
 
     def do_decrypt(self):
         if not errors.check_int(self.enter_module.text()):
@@ -459,10 +472,10 @@ class GamalApp(QtWidgets.QMainWindow, Ui_Gamal_Window):
         if not errors.check_int(self.enter_key_sender.text()):
             self.output_text.setText("Ошибка ввода")
             return
-        self.output_text.setText(str(gamal_code.decrypt(int(self.enter_module.text()), int(self.enter_key.text()),
-                                                    self.input_text.toPlainText())))
+        self.output_text.setText("Расшифрованное сообщение:" + "\n" + str(
+            gamal_code.decrypt(int(self.enter_module.text()), int(self.enter_key.text()),
+                               self.input_text.toPlainText())))
 
-#koisdvbdbвененсчщч№
 
 class HellmanApp(QtWidgets.QMainWindow, Ui_Hellman_Window):
     def __init__(self):
@@ -483,13 +496,11 @@ class HellmanApp(QtWidgets.QMainWindow, Ui_Hellman_Window):
     def go_gamal(self):
         self.gamal = GamalApp()
         self.gamal.show()
-        
         self.close()
 
     def go_rsa(self):
         self.rsa = RsaApp()
         self.rsa.show()
-        
         self.close()
 
     def do_encrypt(self):
@@ -509,7 +520,7 @@ class HellmanApp(QtWidgets.QMainWindow, Ui_Hellman_Window):
             int(self.enter_module.text()), int(self.enter_primitive.text()),
             int(self.enter_key_a.text()), int(self.enter_key_b.text()))
         text = "Зашифрованное сообщение:" + "\n" + crypto_system.first_abonent.encrypt_message(
-            self.input_text.toPlainText()) + "\n" + "Открытый ключ абонента А: " + \
+            self.input_text.toPlainText()) + "\n\n" + "Открытый ключ абонента А: " + \
             str(crypto_system.partical_key_first_abonent) + "\n" + "Открытый ключ абонента В: " + \
             str(crypto_system.partical_key_second_abonent) + "\n" + "Общий ключ:" + \
             str(crypto_system.full_key_2)
@@ -532,7 +543,7 @@ class HellmanApp(QtWidgets.QMainWindow, Ui_Hellman_Window):
             int(self.enter_module.text()), int(self.enter_primitive.text()),
             int(self.enter_key_a.text()), int(self.enter_key_b.text()))
         text = "Расшифрованное сообщение:" + "\n" + crypto_system.first_abonent.decrypt_message(
-            self.input_text.toPlainText()) + "\n" + "Открытый ключ абонента А: " + \
+            self.input_text.toPlainText()) + "\n\n" + "Открытый ключ абонента А: " + \
             str(crypto_system.partical_key_first_abonent) + "\n" + "Открытый ключ абонента В: " + \
             str(crypto_system.partical_key_second_abonent) + "\n" + "Общий ключ:" + \
             str(crypto_system.full_key_2)
@@ -556,19 +567,19 @@ class MenuApp(QtWidgets.QMainWindow, Ui_Menu_Window):
     def go_gamal(self):
         self.gamal = GamalApp()
         self.gamal.show()
-        
+
         self.close()
 
     def go_rsa(self):
         self.rsa = RsaApp()
         self.rsa.show()
-        
+
         self.close()
 
     def go_hellman(self):
         self.hellman = HellmanApp()
         self.hellman.show()
-        
+
         self.close()
 
 

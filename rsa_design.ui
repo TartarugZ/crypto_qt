@@ -124,26 +124,10 @@
      <string>Расшифровать</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="to_rsa">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>440</y>
-      <width>140</width>
-      <height>50</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>RSA</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="to_gamal">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>180</x>
       <y>440</y>
       <width>140</width>
       <height>50</height>
@@ -156,7 +140,7 @@
    <widget class="QPushButton" name="to_hellman">
     <property name="geometry">
      <rect>
-      <x>460</x>
+      <x>350</x>
       <y>440</y>
       <width>140</width>
       <height>50</height>

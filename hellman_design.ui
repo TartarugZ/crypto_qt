@@ -72,22 +72,6 @@
      <string>Введите секретный ключ В</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="to_hellman">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>460</x>
-      <y>440</y>
-      <width>140</width>
-      <height>50</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Диффи-Хелман</string>
-    </property>
-   </widget>
    <widget class="QLineEdit" name="enter_primitive">
     <property name="geometry">
      <rect>
@@ -125,7 +109,7 @@
    <widget class="QPushButton" name="to_rsa">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>180</x>
       <y>440</y>
       <width>140</width>
       <height>50</height>
@@ -172,7 +156,7 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>350</x>
       <y>440</y>
       <width>140</width>
       <height>50</height>
