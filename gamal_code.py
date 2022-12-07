@@ -2,11 +2,11 @@ import math
 
 
 def is_simple_p(number):
-    i = 0
+    q = 0
     for i in range(2, number // 2 + 1):
         if number % i == 0:
-            i = i + 1
-    if i <= 0:
+            q = q + 1
+    if q <= 0:
         return True
     else:
         return False
@@ -38,7 +38,7 @@ def encrypt(crypto, primitive, secret_key, sender_number, message):
     for letter in message:
         ciphertext.append(chr((primitive ** sender_number) % crypto))
         ciphertext.append(chr(((y ** sender_number) * ord(letter)) % crypto))
-    return "".join(ciphertext)
+    return  "".join(ciphertext) + "\n" + "\n" + "Открытый ключ: " + str(y)
 
 
 def decrypt(crypto, secret_key, message):
@@ -51,13 +51,3 @@ def decrypt(crypto, secret_key, message):
         return "".join(deciphered_text)
     else:
         return "Нельзя расшифровать!"
-
-
-# p = int(input("p = "))
-# g = int(input("g = "))
-# x = int(input("x = "))
-# k = int(input("k = "))
-# M = input("M = ")
-#
-# print("Шифровка:", encrypt(p, g, x, k, M))
-# print("Расшифровка:", decrypt(p, x, encrypt(p, g, x, k, M)))

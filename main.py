@@ -107,7 +107,7 @@ class GamalApp(QtWidgets.QMainWindow, Ui_Gamal_Window):
                              "Модуль криптосистемы должен быть простым числом.\n"
                              "Примитивный элемент должен входить в промежуток от 1 до модуля криптосистемы!\n"
                              "Секретный ключ должен входить в промежуток от 1 до модуля криптосистемы!\n"
-                             "Случайное число должно входить в промежуток (от 1 до модуля криптосистемы - 1)"
+                             "Случайное число должно входить в промежуток (от 1 до модуля криптосистемы - 1) "
                              "и быть взаимно простым с модулем криптосистемы!")
         self.help.setToolTipDuration(90000)
         self.scroll_me.setPlainText(
@@ -441,10 +441,10 @@ class GamalApp(QtWidgets.QMainWindow, Ui_Gamal_Window):
         if not errors.check_int(self.enter_key_sender.text()):
             self.output_text.setText("Ошибка ввода")
             return
-        self.output_text.setText(gamal_code.encrypt(int(self.enter_module), int(self.enter_primitive),
-                                                    int(self.enter_key),
-                                                    int(self.enter_key_sender),
-                                                    self.input_text.toPlainText()))
+        self.output_text.setText(str(gamal_code.encrypt(int(self.enter_module.text()), int(self.enter_primitive.text()),
+                                                    int(self.enter_key.text()),
+                                                    int(self.enter_key_sender.text()),
+                                                    self.input_text.toPlainText())))
 
     def do_decrypt(self):
         if not errors.check_int(self.enter_module.text()):
@@ -459,9 +459,10 @@ class GamalApp(QtWidgets.QMainWindow, Ui_Gamal_Window):
         if not errors.check_int(self.enter_key_sender.text()):
             self.output_text.setText("Ошибка ввода")
             return
-        self.output_text.setText(gamal_code.decrypt(int(self.enter_module), int(self.enter_key),
-                                                    self.input_text.toPlainText()))
+        self.output_text.setText(str(gamal_code.decrypt(int(self.enter_module.text()), int(self.enter_key.text()),
+                                                    self.input_text.toPlainText())))
 
+#koisdvbdbвененсчщч№
 
 class HellmanApp(QtWidgets.QMainWindow, Ui_Hellman_Window):
     def __init__(self):
